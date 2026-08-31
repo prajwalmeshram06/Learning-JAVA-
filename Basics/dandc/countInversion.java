@@ -1,25 +1,8 @@
-import java.util.*;
+package dandc;
 
-public class Mergesort {
-
-    public static void main(String[] args) {
-
-        int[] arr = {1, 3, 5, 6, 4, 9};
-
-        mergeSort(arr);
-
-        System.out.println(Arrays.toString(arr));
-    }
-
-    static void mergeSort(int[] arr) {
-
-        int[] temp = new int[arr.length];
-
-        mergeSort(arr, temp, 0, arr.length - 1);
-    }
-
-    static int mergeSort(int[] arr, int[] temp, int low, int high) {
-        int count = 0;
+public class countInversion {
+    static long mergeSort(int[] arr, int[] temp, int low, int high) {
+        long count = 0;
         if (low >= high) {
             return count;
         }
@@ -34,37 +17,50 @@ public class Mergesort {
         return count;
     }
 
-    static int merge(int[] arr, int[] temp, int low, int mid, int high) {
+    static long merge(int[] arr, int[] temp, int low, int mid, int high) {
 
         int i = low;
         int j = mid + 1;
         int k = low;
-        int count = 0;
-        // Merge two sorted halves
+        long count = 0;
+        
         while (i <= mid && j <= high) {
 
             if (arr[i] <= arr[j]) {
                 temp[k++] = arr[i++];
             } else {
                 temp[k++] = arr[j++];
-                count += (mid - i + 1);
+                if(arr[i] > 2 * arr[j]) {
+                    count += (mid - i + 1);
+                }
+                
             }
         }
 
-        // Remaining elements from left half
+        
         while (i <= mid) {
             temp[k++] = arr[i++];
         }
 
-        // Remaining elements from right half
+        
         while (j <= high) {
             temp[k++] = arr[j++];
         }
 
-        // Copy back into original array
+        
         for (i = low; i <= high; i++) {
             arr[i] = temp[i];
         }
         return count;
+    }
+    private static int inversionPairs(int[] arr) {
+        int pairCount = 0;
+
+        
+
+        return pairCount;
+    }
+    public static void main(String[] args) {
+        
     }
 }
