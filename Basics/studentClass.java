@@ -1,6 +1,41 @@
 import java.util.*;
  
 
+class Studentt {
+    private String name;
+    private int age;
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setAge(int age) {
+        if (age >= 0) {
+            this.age = age;
+        }
+    }
+
+    public int getAge() {
+        return age;
+    }
+}
+
+class Animal {
+    void sound() {
+        System.out.println("Animal makes sound");
+    }
+}
+
+class Dog extends Animal {
+    @Override
+    void sound() {
+        System.out.println("Dog barks");
+    }
+}
 class Student {
     String name;
     int age;
